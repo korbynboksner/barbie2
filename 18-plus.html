@@ -1,0 +1,221 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  />
+
+  <title>Age Confirmation</title>
+
+  <meta
+    name="robots"
+    content="noindex, nofollow"
+  />
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      min-height: 100svh;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      padding: 20px;
+
+      font-family: Arial, sans-serif;
+      color: white;
+      text-align: center;
+
+      background:
+        radial-gradient(
+          circle at 20% 20%,
+          rgba(255, 104, 180, 0.3),
+          transparent 35%
+        ),
+        radial-gradient(
+          circle at 80% 80%,
+          rgba(140, 85, 255, 0.35),
+          transparent 40%
+        ),
+        linear-gradient(
+          145deg,
+          #17101f,
+          #301645 55%,
+          #15101d
+        );
+    }
+
+    .age-card {
+      width: 100%;
+      max-width: 440px;
+
+      padding: 34px 28px;
+
+      border: 1px solid rgba(255, 255, 255, 0.18);
+      border-radius: 26px;
+
+      background: rgba(20, 12, 28, 0.72);
+
+      box-shadow:
+        0 25px 70px rgba(0, 0, 0, 0.45),
+        inset 0 1px 0 rgba(255, 255, 255, 0.12);
+
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
+    }
+
+    .age-icon {
+      width: 82px;
+      height: 82px;
+
+      display: grid;
+      place-items: center;
+
+      margin: 0 auto 20px;
+
+      border-radius: 50%;
+
+      color: #2b1238;
+      background:
+        linear-gradient(
+          135deg,
+          #ffffff,
+          #ff9bd1,
+          #ba9cff
+        );
+
+      font-size: 1.5rem;
+      font-weight: 800;
+
+      box-shadow:
+        0 0 30px rgba(255, 126, 198, 0.25);
+    }
+
+    h1 {
+      margin: 0 0 14px;
+      font-size: 2rem;
+    }
+
+    p {
+      margin: 0 auto 26px;
+      max-width: 340px;
+
+      color: rgba(255, 255, 255, 0.74);
+      line-height: 1.55;
+    }
+
+    .buttons {
+      display: grid;
+      gap: 12px;
+    }
+
+    .button {
+      display: block;
+      width: 100%;
+
+      padding: 16px 20px;
+
+      border: 0;
+      border-radius: 15px;
+
+      font: inherit;
+      font-weight: 700;
+      text-decoration: none;
+      cursor: pointer;
+
+      transition:
+        transform 160ms ease,
+        opacity 160ms ease;
+    }
+
+    .button:hover {
+      transform: translateY(-2px);
+    }
+
+    .confirm-button {
+      color: #261131;
+
+      background:
+        linear-gradient(
+          135deg,
+          #ffffff,
+          #ffb2da,
+          #c5b1ff
+        );
+    }
+
+    .leave-button {
+      color: white;
+      background: rgba(255, 255, 255, 0.09);
+      border: 1px solid rgba(255, 255, 255, 0.16);
+    }
+
+    .small-print {
+      margin-top: 20px;
+      margin-bottom: 0;
+
+      color: rgba(255, 255, 255, 0.42);
+      font-size: 0.75rem;
+    }
+  </style>
+</head>
+
+<body>
+  <main class="age-card">
+    <div class="age-icon" aria-hidden="true">
+      18+
+    </div>
+
+    <h1>Age Confirmation</h1>
+
+    <p>
+      This destination is intended only for adults.
+      Please confirm that you are at least 18 years old
+      before continuing.
+    </p>
+
+    <div class="buttons">
+      <button
+        class="button confirm-button"
+        id="confirm-age"
+        type="button"
+      >
+        I am 18 or older
+      </button>
+
+      <a
+        class="button leave-button"
+        href="/"
+      >
+        I am under 18
+      </a>
+    </div>
+
+    <p class="small-print">
+      By continuing, you confirm that you meet the minimum
+      legal age required in your location.
+    </p>
+  </main>
+
+  <script>
+    const destinationUrl = "https://hoo.be/barbellinaa";
+
+    document
+      .getElementById("confirm-age")
+      .addEventListener("click", function () {
+        window.location.href = destinationUrl;
+      });
+  </script>
+</body>
+</html>
+```
