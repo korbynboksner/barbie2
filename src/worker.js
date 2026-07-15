@@ -1,5 +1,5 @@
-//const DESTINATION_URL = "https://hoo.be/barbellinaa";
-const DESTINATION_URL = "https://barbellinaaxoxo.com/links.html";
+const DESTINATION_URL = "https://hoo.be/barbellinaa";
+//const DESTINATION_URL = "https://barbellinaaxoxo.com/links.html";
 const ALLOWED_ORIGIN = "https://barbellinaaxoxo.com";
 
 export default {
