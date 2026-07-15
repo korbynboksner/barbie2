@@ -1,8 +1,20 @@
 const DESTINATION_URL = "https://hoo.be/barbellinaa";
 
+const ALLOWED_ORIGIN = "https://barbellinaaxoxo.com";
+
 export default {
   async fetch(request, env) {
     const url = new URL(request.url);
+
+    if (
+      url.pathname === "/api/verify-turnstile" &&
+      request.method === "OPTIONS"
+    ) {
+      return new Response(null, {
+        status: 204,
+        headers: corsHeaders()
+      });
+    }
 
     if (
       url.pathname === "/api/verify-turnstile" &&
@@ -116,8 +128,18 @@ function jsonResponse(data, status = 200) {
         "Content-Type":
           "application/json; charset=UTF-8",
         "Cache-Control": "no-store",
-        "X-Content-Type-Options": "nosniff"
+        "X-Content-Type-Options": "nosniff",
+        ...corsHeaders()
       }
     }
   );
+}
+
+function corsHeaders() {
+  return {
+    "Access-Control-Allow-Origin": ALLOWED_ORIGIN,
+    "Access-Control-Allow-Methods": "POST, OPTIONS",
+    "Access-Control-Allow-Headers": "Content-Type",
+    "Vary": "Origin"
+  };
 }

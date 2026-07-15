@@ -39,7 +39,7 @@ form.addEventListener("submit", async (event) => {
 
   try {
     const response = await fetch(
-      "/api/verify-turnstile",
+      "https://barbie2.korbynboksner.workers.dev/api/verify-turnstile",
       {
         method: "POST",
 
