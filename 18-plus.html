@@ -8,12 +8,18 @@
     content="width=device-width, initial-scale=1.0"
   />
 
-  <title>Age Confirmation</title>
-
   <meta
     name="robots"
     content="noindex, nofollow"
   />
+
+  <title>Age Confirmation</title>
+
+  <script
+    src="https://challenges.cloudflare.com/turnstile/v0/api.js"
+    async
+    defer
+  ></script>
 
   <style>
     * {
@@ -24,11 +30,9 @@
       margin: 0;
       min-height: 100vh;
       min-height: 100svh;
-
       display: flex;
       align-items: center;
       justify-content: center;
-
       padding: 20px;
 
       font-family: Arial, sans-serif;
@@ -57,17 +61,18 @@
     .age-card {
       width: 100%;
       max-width: 440px;
-
       padding: 34px 28px;
 
-      border: 1px solid rgba(255, 255, 255, 0.18);
+      border:
+        1px solid rgba(255, 255, 255, 0.18);
+
       border-radius: 26px;
 
-      background: rgba(20, 12, 28, 0.72);
+      background:
+        rgba(20, 12, 28, 0.75);
 
       box-shadow:
-        0 25px 70px rgba(0, 0, 0, 0.45),
-        inset 0 1px 0 rgba(255, 255, 255, 0.12);
+        0 25px 70px rgba(0, 0, 0, 0.45);
 
       backdrop-filter: blur(18px);
       -webkit-backdrop-filter: blur(18px);
@@ -76,15 +81,13 @@
     .age-icon {
       width: 82px;
       height: 82px;
-
       display: grid;
       place-items: center;
-
       margin: 0 auto 20px;
-
       border-radius: 50%;
 
       color: #2b1238;
+
       background:
         linear-gradient(
           135deg,
@@ -95,22 +98,65 @@
 
       font-size: 1.5rem;
       font-weight: 800;
-
-      box-shadow:
-        0 0 30px rgba(255, 126, 198, 0.25);
     }
 
     h1 {
       margin: 0 0 14px;
-      font-size: 2rem;
     }
 
-    p {
-      margin: 0 auto 26px;
+    .description {
+      margin: 0 auto 22px;
       max-width: 340px;
-
-      color: rgba(255, 255, 255, 0.74);
+      color: rgba(255, 255, 255, 0.75);
       line-height: 1.55;
+    }
+
+    .turnstile-section {
+      margin-bottom: 20px;
+    }
+
+    .turnstile-label {
+      margin: 0 0 12px;
+      color: rgba(255, 255, 255, 0.7);
+      font-size: 0.9rem;
+    }
+
+    .turnstile-container {
+      display: flex;
+      justify-content: center;
+      min-height: 65px;
+    }
+
+    .age-confirmation {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+
+      margin: 20px 0;
+      padding: 14px;
+
+      text-align: left;
+
+      border:
+        1px solid rgba(255, 255, 255, 0.14);
+
+      border-radius: 14px;
+      background:
+        rgba(255, 255, 255, 0.06);
+    }
+
+    .age-confirmation input {
+      width: 19px;
+      height: 19px;
+      margin: 1px 0 0;
+      accent-color: #ff9bd1;
+      flex: 0 0 auto;
+    }
+
+    .age-confirmation label {
+      color: rgba(255, 255, 255, 0.84);
+      line-height: 1.4;
+      cursor: pointer;
     }
 
     .buttons {
@@ -121,10 +167,8 @@
     .button {
       display: block;
       width: 100%;
-
       padding: 16px 20px;
 
-      border: 0;
       border-radius: 15px;
 
       font: inherit;
@@ -137,11 +181,12 @@
         opacity 160ms ease;
     }
 
-    .button:hover {
+    .button:hover:not(:disabled) {
       transform: translateY(-2px);
     }
 
     .confirm-button {
+      border: 0;
       color: #261131;
 
       background:
@@ -153,67 +198,106 @@
         );
     }
 
-    .leave-button {
-      color: white;
-      background: rgba(255, 255, 255, 0.09);
-      border: 1px solid rgba(255, 255, 255, 0.16);
+    .confirm-button:disabled {
+      cursor: not-allowed;
+      opacity: 0.5;
     }
 
-    .small-print {
-      margin-top: 20px;
-      margin-bottom: 0;
+    .leave-button {
+      color: white;
 
-      color: rgba(255, 255, 255, 0.42);
-      font-size: 0.75rem;
+      background:
+        rgba(255, 255, 255, 0.08);
+
+      border:
+        1px solid rgba(255, 255, 255, 0.16);
+    }
+
+    .error-message {
+      min-height: 22px;
+      margin: 15px 0 0;
+      color: #ffb5c6;
+      font-size: 0.9rem;
     }
   </style>
 </head>
 
 <body>
   <main class="age-card">
-    <div class="age-icon" aria-hidden="true">
+    <div
+      class="age-icon"
+      aria-hidden="true"
+    >
       18+
     </div>
 
     <h1>Age Confirmation</h1>
 
-    <p>
-      This destination is intended only for adults.
-      Please confirm that you are at least 18 years old
-      before continuing.
+    <p class="description">
+      Complete the security check and confirm that
+      you are at least 18 years old to continue.
     </p>
 
-    <div class="buttons">
-      <button
-        class="button confirm-button"
-        id="confirm-age"
-        type="button"
-      >
-        I am 18 or older
-      </button>
+    <form id="age-form">
+      <section class="turnstile-section">
+        <p class="turnstile-label">
+          First, complete the security check:
+        </p>
 
-      <a
-        class="button leave-button"
-        href="/"
-      >
-        I am under 18
-      </a>
-    </div>
+        <div class="turnstile-container">
+          <div
+            class="cf-turnstile"
+            data-sitekey="YOUR_PUBLIC_SITE_KEY"
+            data-theme="dark"
+            data-appearance="always"
+          ></div>
+        </div>
+      </section>
 
-    <p class="small-print">
-      By continuing, you confirm that you meet the minimum
-      legal age required in your location.
-    </p>
+      <div class="age-confirmation">
+        <input
+          id="age-confirmed"
+          name="age-confirmed"
+          type="checkbox"
+          required
+        />
+
+        <label for="age-confirmed">
+          I confirm that I am at least 18 years old
+          and meet the legal age requirement in my
+          location.
+        </label>
+      </div>
+
+      <div class="buttons">
+        <button
+          class="button confirm-button"
+          id="confirm-button"
+          type="submit"
+        >
+          Confirm and Continue
+        </button>
+
+        <a
+          class="button leave-button"
+          href="/"
+        >
+          Go Back
+        </a>
+      </div>
+
+      <p
+        class="error-message"
+        id="error-message"
+        role="alert"
+        aria-live="polite"
+      ></p>
+    </form>
   </main>
 
-  <script>
-    const destinationUrl = "https://hoo.be/barbellinaa";
-
-    document
-      .getElementById("confirm-age")
-      .addEventListener("click", function () {
-        window.location.href = destinationUrl;
-      });
-  </script>
+  <script
+    src="/js/age-gate.js"
+    defer
+  ></script>
 </body>
 </html>
