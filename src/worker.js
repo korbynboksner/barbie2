@@ -73,15 +73,16 @@ async function verifyTurnstile(request, env) {
         verification["error-codes"] || [];
 
       console.log(
-         "Turnstile verification failed:",
-          errorCodes
-        );
+         "Turnstile verification failed:", {
+          errorCodes,
+          hostname: verification.hostname,
+          action: verification.action
+    });
 
         return jsonResponse(
         {
           success: false,
-          message:
-            "The security check failed.",
+          message:"The security check failed.",
           errorCodes
         },
         403
