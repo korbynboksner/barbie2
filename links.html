@@ -1,0 +1,599 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0, viewport-fit=cover"
+  />
+
+  <title>Barbellinaa | Official Links</title>
+
+  <meta
+    name="description"
+    content="Official links for Barbellinaa."
+  />
+
+  <meta name="robots" content="noindex, nofollow" />
+
+  <link
+    rel="preconnect"
+    href="https://fonts.googleapis.com"
+  />
+
+  <link
+    rel="preconnect"
+    href="https://fonts.gstatic.com"
+    crossorigin
+  />
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Unbounded:wght@500;600;700&display=swap"
+    rel="stylesheet"
+  />
+
+  <style>
+    :root {
+      --background-top: #160f28;
+      --background-middle: #361a58;
+      --background-bottom: #160f22;
+
+      --pink: #ff84c8;
+      --purple: #b797ff;
+      --cream: #fff7fc;
+
+      --card-background: rgba(24, 12, 38, 0.64);
+      --card-border: rgba(255, 255, 255, 0.16);
+
+      --text-primary: #ffffff;
+      --text-secondary: rgba(255, 255, 255, 0.72);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      min-height: 100%;
+      background: var(--background-bottom);
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      min-height: 100svh;
+      overflow-x: hidden;
+
+      font-family: "DM Sans", sans-serif;
+      color: var(--text-primary);
+
+      background:
+        radial-gradient(
+          circle at 13% 10%,
+          rgba(255, 132, 200, 0.3),
+          transparent 30%
+        ),
+        radial-gradient(
+          circle at 86% 78%,
+          rgba(183, 151, 255, 0.3),
+          transparent 34%
+        ),
+        linear-gradient(
+          150deg,
+          var(--background-top),
+          var(--background-middle) 48%,
+          var(--background-bottom)
+        );
+    }
+
+    body::after {
+      content: "";
+      position: fixed;
+      inset: 0;
+      z-index: 0;
+      pointer-events: none;
+
+      background:
+        radial-gradient(
+          circle at center,
+          transparent 20%,
+          rgba(4, 2, 10, 0.48) 100%
+        );
+    }
+
+    .background {
+      position: fixed;
+      inset: 0;
+      z-index: 0;
+      overflow: hidden;
+      pointer-events: none;
+    }
+
+    .glow {
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(8px);
+      opacity: 0.35;
+      animation: float 9s ease-in-out infinite alternate;
+    }
+
+    .glow-one {
+      top: 7%;
+      left: -45px;
+      width: 180px;
+      height: 180px;
+      background: rgba(255, 132, 200, 0.4);
+    }
+
+    .glow-two {
+      right: -60px;
+      bottom: 12%;
+      width: 230px;
+      height: 230px;
+      background: rgba(183, 151, 255, 0.35);
+      animation-delay: -3s;
+    }
+
+    .glow-three {
+      top: 48%;
+      left: 48%;
+      width: 110px;
+      height: 110px;
+      background: rgba(255, 255, 255, 0.12);
+      animation-delay: -6s;
+    }
+
+    @keyframes float {
+      from {
+        transform: translate3d(-10px, -15px, 0);
+      }
+
+      to {
+        transform: translate3d(16px, 22px, 0);
+      }
+    }
+
+    .page {
+      position: relative;
+      z-index: 1;
+
+      min-height: 100vh;
+      min-height: 100svh;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      padding:
+        max(26px, env(safe-area-inset-top))
+        16px
+        max(26px, env(safe-area-inset-bottom));
+    }
+
+    .link-card {
+      position: relative;
+
+      width: min(100%, 470px);
+      padding: 30px 22px 24px;
+
+      overflow: hidden;
+      text-align: center;
+
+      border: 1px solid var(--card-border);
+      border-radius: 30px;
+
+      background:
+        linear-gradient(
+          145deg,
+          rgba(255, 255, 255, 0.1),
+          rgba(255, 255, 255, 0.025)
+        ),
+        var(--card-background);
+
+      box-shadow:
+        0 30px 90px rgba(0, 0, 0, 0.42),
+        inset 0 1px 0 rgba(255, 255, 255, 0.16);
+
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+    }
+
+    .top-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      min-height: 30px;
+      margin-bottom: 8px;
+    }
+
+    .verified-label,
+    .age-label {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+
+      min-height: 30px;
+      padding: 7px 11px;
+
+      border: 1px solid rgba(255, 255, 255, 0.14);
+      border-radius: 999px;
+
+      color: rgba(255, 255, 255, 0.78);
+      background: rgba(255, 255, 255, 0.06);
+
+      font-size: 0.73rem;
+      font-weight: 700;
+      letter-spacing: 0.03em;
+    }
+
+    .verified-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+
+      background: #7cffb0;
+      box-shadow: 0 0 10px rgba(124, 255, 176, 0.8);
+    }
+
+    .profile-frame {
+      position: relative;
+
+      width: 132px;
+      height: 132px;
+
+      margin: 5px auto 19px;
+      padding: 4px;
+
+      border-radius: 50%;
+
+      background:
+        linear-gradient(
+          135deg,
+          #ffffff,
+          var(--pink),
+          var(--purple)
+        );
+
+      box-shadow:
+        0 17px 38px rgba(0, 0, 0, 0.36),
+        0 0 36px rgba(255, 132, 200, 0.19);
+    }
+
+    .profile-image {
+      display: block;
+
+      width: 100%;
+      height: 100%;
+
+      border: 3px solid rgba(27, 13, 42, 0.92);
+      border-radius: 50%;
+
+      object-fit: cover;
+      background: #261438;
+    }
+
+    .profile-badge {
+      position: absolute;
+      right: 3px;
+      bottom: 8px;
+
+      width: 31px;
+      height: 31px;
+
+      display: grid;
+      place-items: center;
+
+      border: 4px solid #251236;
+      border-radius: 50%;
+
+      color: #291336;
+      background: linear-gradient(
+        135deg,
+        #ffffff,
+        #ffb5dd
+      );
+
+      font-size: 0.82rem;
+      font-weight: 800;
+
+      box-shadow:
+        0 0 16px rgba(255, 132, 200, 0.55);
+    }
+
+    h1 {
+      margin: 0;
+
+      font-family: "Unbounded", sans-serif;
+      font-size: clamp(1.7rem, 7vw, 2.2rem);
+      font-weight: 700;
+      letter-spacing: -0.05em;
+    }
+
+    .handle {
+      margin: 8px 0 0;
+
+      color: rgba(255, 255, 255, 0.58);
+      font-size: 0.92rem;
+      font-weight: 600;
+    }
+
+    .bio {
+      max-width: 340px;
+      margin: 17px auto 24px;
+
+      color: var(--text-secondary);
+      font-size: 0.98rem;
+      line-height: 1.55;
+    }
+
+    .link-list {
+      display: grid;
+      gap: 13px;
+    }
+
+    .link-button {
+      position: relative;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      min-height: 61px;
+      width: 100%;
+      padding: 15px 52px;
+
+      overflow: hidden;
+
+      border: 1px solid rgba(255, 255, 255, 0.7);
+      border-radius: 18px;
+
+      color: #2d1639;
+      background:
+        linear-gradient(
+          135deg,
+          #ffffff,
+          #ffd6eb 55%,
+          #d4c5ff
+        );
+
+      font: inherit;
+      font-weight: 800;
+      text-decoration: none;
+
+      box-shadow:
+        0 14px 30px rgba(4, 1, 10, 0.28),
+        inset 0 1px 0 rgba(255, 255, 255, 0.94);
+
+      transition:
+        transform 180ms ease,
+        box-shadow 180ms ease,
+        filter 180ms ease;
+    }
+
+    .link-button::before {
+      content: "";
+      position: absolute;
+      top: -70%;
+      left: -75%;
+
+      width: 38%;
+      height: 240%;
+
+      background: rgba(255, 255, 255, 0.55);
+
+      transform: rotate(28deg);
+      transition: left 520ms ease;
+    }
+
+    .link-button::after {
+      content: "↗";
+      position: absolute;
+      right: 21px;
+      top: 50%;
+
+      color: rgba(45, 22, 57, 0.55);
+      font-size: 1.1rem;
+
+      transform: translateY(-50%);
+      transition: transform 180ms ease;
+    }
+
+    .link-button:hover {
+      transform: translateY(-3px);
+      filter: brightness(1.035);
+
+      box-shadow:
+        0 19px 38px rgba(4, 1, 10, 0.38),
+        0 0 24px rgba(255, 132, 200, 0.14);
+    }
+
+    .link-button:hover::before {
+      left: 135%;
+    }
+
+    .link-button:hover::after {
+      transform: translate(3px, -3px);
+    }
+
+    .link-button:active {
+      transform: scale(0.985);
+    }
+
+    .secondary-button {
+      color: white;
+
+      border-color: rgba(255, 255, 255, 0.14);
+
+      background:
+        rgba(255, 255, 255, 0.07);
+
+      box-shadow:
+        inset 0 1px 0 rgba(255, 255, 255, 0.08);
+    }
+
+    .secondary-button::after {
+      color: rgba(255, 255, 255, 0.5);
+    }
+
+    .notice {
+      display: flex;
+      align-items: flex-start;
+      gap: 9px;
+
+      margin-top: 20px;
+      padding: 13px 14px;
+
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 15px;
+
+      color: rgba(255, 255, 255, 0.5);
+      background: rgba(255, 255, 255, 0.04);
+
+      font-size: 0.74rem;
+      line-height: 1.45;
+      text-align: left;
+    }
+
+    .notice-icon {
+      flex: 0 0 auto;
+      font-weight: 800;
+    }
+
+    .footer {
+      margin: 20px 0 0;
+
+      color: rgba(255, 255, 255, 0.34);
+      font-size: 0.72rem;
+      letter-spacing: 0.04em;
+    }
+
+    @media (min-width: 700px) {
+      .link-card {
+        padding: 34px 32px 28px;
+      }
+    }
+
+    @media (max-width: 390px) {
+      .link-card {
+        padding: 25px 17px 21px;
+        border-radius: 25px;
+      }
+
+      .profile-frame {
+        width: 116px;
+        height: 116px;
+      }
+
+      .link-button {
+        padding-left: 44px;
+        padding-right: 44px;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .glow {
+        animation: none;
+      }
+
+      .link-button,
+      .link-button::before,
+      .link-button::after {
+        transition: none;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="background" aria-hidden="true">
+    <span class="glow glow-one"></span>
+    <span class="glow glow-two"></span>
+    <span class="glow glow-three"></span>
+  </div>
+
+  <main class="page">
+    <section class="link-card">
+      <div class="top-row">
+        <span class="verified-label">
+          <span class="verified-dot"></span>
+          Official
+        </span>
+
+        <span class="age-label">
+          18+ only
+        </span>
+      </div>
+
+      <div class="profile-frame">
+        <img
+          class="profile-image"
+          src="https://cache.link.me/transformed/format%3Dwebp%2Cheight%3D1092%2Cquality%3D90%2Cwidth%3D1092/user-profile%252F1898286%252Ftmp-1365-1775090272194.png"
+          alt="Barbellinaa profile photo"
+        />
+
+        <span
+          class="profile-badge"
+          aria-hidden="true"
+        >
+          ✓
+        </span>
+      </div>
+
+      <h1>Barbellinaa</h1>
+
+      <p class="handle">
+        @barbellinaa
+      </p>
+
+      <p class="bio">
+        Model &amp; Content Creator<br />
+        Welcome to my official links ♡
+      </p>
+
+      <nav
+        class="link-list"
+        aria-label="Official links"
+      >
+        <!-- Replace this destination with the correct external URL -->
+        <a
+          class="link-button"
+          href= "https://onlyfans.com/barbellinaa"
+          rel="noopener noreferrer"
+        >
+          My Official 18+ Page
+        </a>
+
+        <!-- Optional Instagram link -->
+        <a
+          class="link-button secondary-button"
+          href="https://www.instagram.com/barbellinaa/"
+          rel="noopener noreferrer"
+        >
+          Instagram
+        </a>
+
+
+      <div class="notice">
+        <span
+          class="notice-icon"
+          aria-hidden="true"
+        >
+          18+
+        </span>
+
+        <span>
+          External destinations may contain content intended
+          only for adults. Please continue only if you meet
+          the legal age requirement in your location.
+        </span>
+      </div>
+
+      <p class="footer">
+        © 2026 Barbellinaa
+      </p>
+    </section>
+  </main>
+</body>
+</html>
